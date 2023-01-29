@@ -7,7 +7,7 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'Home',
       component: HomeView
     },
     {
@@ -24,6 +24,11 @@ const router = createRouter({
       component: LoginView
     }
   ]
+})
+
+router.beforeEach((to, from, next) => {
+  document.title = import.meta.env.VITE_NAME_APP + ' - ' +to.name
+  next()
 })
 
 export default router
